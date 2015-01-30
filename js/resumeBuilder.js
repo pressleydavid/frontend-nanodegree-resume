@@ -13,11 +13,25 @@ var bio = {
 	"name" : "David",
 	"role"	: "Manager, Clinical Data Programming",
 	"contacts" : ["pressleydavid@gmail.com", "919-414-6267", "Raleigh, NC"],
-	"picture_URL" : images/dp.jpg,
 	"welcomeMessage" : "Hello!",
 	"skills" : ["SAS", "CDISC", "Management", "JS"]
 };
-$("main").append(bio.picture_URL);
+// "picture_URL" : "images/dp.jpg",
+
+if(bio.skills.length >0){
+      $("#header").append(HTMLskillsStart);
+      var formattedSkill = HTMLskills.replace("%data%",bio.skills[0]);
+      console.log(formattedSkill);
+      $("#skills").append(formattedSkill);
+      formattedSkill = HTMLskills.replace("%data%",bio.skills[1]);
+      $("#skills").append(formattedSkill);
+      formattedSkill = HTMLskills.replace("%data%",bio.skills[2]);
+      $("#skills").append(formattedSkill);
+      formattedSkill = HTMLskills.replace("%data%",bio.skills[3]);
+      $("#skills").append(formattedSkill);
+      formattedSkill = HTMLskills.replace("%data%",bio.skills[4]);
+    }
+//$("main").append(bio.picture_URL);
 
 // ["Twitter": "pressleydavid","Github":"pressleydavid"]
 
