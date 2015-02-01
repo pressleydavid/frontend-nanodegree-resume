@@ -10,27 +10,15 @@ $("#header").append(formattedRole) ;
 //$("#main").append(skills.length);
 
 var bio = {
-	"name" : "David",
-	"role"	: "Manager, Clinical Data Programming",
-	"contacts" : ["pressleydavid@gmail.com", "919-414-6267", "Raleigh, NC"],
+	"name" : "David Pressley",
+	"role"	: "Problem Solver",
+	"contacts" : ["pressleydavid@gmail.com", "919-414-6267", "pressleydavid", "@pressleydavid", Raleigh, NC"],
 	"welcomeMessage" : "Hello!",
-	"skills" : ["SAS", "CDISC", "Management", "JS"]
+	"skills" : ["SAS", "CDISC", "People Leadership", "Burgeoning Web Developer"]
 };
 // "picture_URL" : "images/dp.jpg",
 
-if(bio.skills.length >0){
-      $("#header").append(HTMLskillsStart);
-      var formattedSkill = HTMLskills.replace("%data%",bio.skills[0]);
-      console.log(formattedSkill);
-      $("#skills").append(formattedSkill);
-      formattedSkill = HTMLskills.replace("%data%",bio.skills[1]);
-      $("#skills").append(formattedSkill);
-      formattedSkill = HTMLskills.replace("%data%",bio.skills[2]);
-      $("#skills").append(formattedSkill);
-      formattedSkill = HTMLskills.replace("%data%",bio.skills[3]);
-      $("#skills").append(formattedSkill);
-      formattedSkill = HTMLskills.replace("%data%",bio.skills[4]);
-    }
+
 //$("main").append(bio.picture_URL);
 
 // ["Twitter": "pressleydavid","Github":"pressleydavid"]
@@ -42,7 +30,14 @@ var work = {
 	{
 	"title" : "Senior Manager, Clinical Data Programming",
 	"employer" : "United Therapeutics",
-	"dates" : "2006 - 2015",
+	"dates" : "2012 - 2015",
+	"location" : "Research Triangle Park, NC",
+	"description" : "Direct and individually contribute to clinical data programming for internal report writing and regulatory agency filing for Biostatistics and Data Programming group. I also architect systems and processes to enable efficiency."
+	},
+	{
+	"title" : "Manager, Clinical Data Programming",
+	"employer" : "United Therapeutics",
+	"dates" : "2010 - 2012",
 	"location" : "Research Triangle Park, NC",
 	"description" : "Oversee and individually contribute to Biostatistics and Data Programming group"
 	}
