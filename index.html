@@ -46,7 +46,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   Uncomment the <script> tag below when you're ready to add an interactive
   Google Map to your resume!
   -->
-  <!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 
   <meta name="viewport" content="width=device-width">
 </head>
@@ -117,9 +117,9 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     if(document.getElementsByClassName('flex-item').length === 0) {
       document.getElementById('topContacts').style.backgroundColor = 'black';
     }
-    if(document.getElementsByTagName('h1').length === 0) {
-      document.getElementById('header').style.backgroundColor = 'black';
-    }
+    // if(document.getElementsByTagName('h1').length === 0) {
+    //   document.getElementById('header').style.backgroundColor = 'black';
+    // }
     if(document.getElementsByClassName('work-entry').length === 0) {
       document.getElementById('workExperience').style.backgroundColor = 'black';
     }
@@ -135,89 +135,15 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     if(document.getElementById('map') === null) {
       document.getElementById('mapDiv').style.backgroundColor = 'black';
     }
-    if(bio.skills.length >0){
-      $("#header").append(HTMLskillsStart);
-      var formattedSkill = HTMLskills.replace("%data%",bio.skills[0]);
-      console.log(formattedSkill);
-      $("#skills").append(formattedSkill);
-      formattedSkill = HTMLskills.replace("%data%",bio.skills[1]);
-      $("#skills").append(formattedSkill);
-      formattedSkill = HTMLskills.replace("%data%",bio.skills[2]);
-      $("#skills").append(formattedSkill);
-      formattedSkill = HTMLskills.replace("%data%",bio.skills[3]);
-      $("#skills").append(formattedSkill);
-      formattedSkill = HTMLskills.replace("%data%",bio.skills[4]);
-    }
 
 
-    function displayWork(){
-      for(i in work.jobs){
-        $("#workExperience").append(HTMLworkStart);
-
-        var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
-        var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
-        var formattedEmployerTitle = formattedEmployer + formattedTitle;
-        $(".work-entry:last").append(formattedEmployerTitle);
-        // console.log(work.jobs[i].title);
+  displayBio();
+  displayWork();
+  projects.display();
 
 
-        //$("#work-entry").append(HTMLworkDates);
-        var workDates = HTMLworkDates.replace("%data%", work.jobs[i].dates);
-        // console.log(workDates);
-        // console.log(work.jobs[i].dates);
-        $(".work-entry:last").append(workDates);
 
-        $("#work-entry").append(HTMLworkLocation);
-        var formattedlocation = HTMLworkLocation.replace("%data%",work.jobs[i].location);
-        // console.log(work.jobs[i].location);
-        $(".work-entry:last").append(formattedlocation);
-
-        $("#work-entry").append(HTMLworkDescription);
-        var formattedDescription = HTMLworkDescription.replace("%data%",work.jobs[i].description);
-        $(".work-entry:last").append(formattedDescription);
-
-      }
-    }
-    displayWork();
-
-    function inName(name){
-      var fnam = name.substr(1,name.indexOf(' ')).toLowerCase().trimRight();
-      var lnam = name.substr(name.indexOf(' ')).toUpperCase();
-      first = name.slice(0,1).toUpperCase();
-      finalName = first + fnam + lnam;
-
-      return finalName;
-
-
-    }
-
-    projects.display = function(){
-      for (i in projects.project){
-        $("#projects").append(HTMLprojectStart);
-
-        var formattedTitle = HTMLprojectTitle.replace("%data%",projects.project[i].title);
-        $(".project-entry:last ").append(formattedTitle);
-
-        var formattedDates = HTMLprojectDates.replace("%data%",projects.project[i].dates);
-        $(".project-entry:last").append(formattedDates);
-
-        var formattedDescription = HTMLprojectDescription.replace("%data%",projects.project[i].description);
-        $(".project-entry:last").append(formattedDescription);
-
-        if(projects.project[i].images.length >0){
-          for (image in projects.project[i].images){
-            var formattedImage = HTMLprojectImage.replace("%data%",projects.project[i].images);
-            $(".project-entry:last").append(formattedImage);
-          }
-        }
-
-        console.log(projects.project[i].title);
-      }
-    }
-    projects.display();
-
-
-    $("#main").append(internationalizeButton);
+    // $("#main").append(internationalizeButton);
 
   </script>
 </body>
