@@ -31,7 +31,7 @@ h2 {
 h3 {
   font-style: italic;
   font-size: 20px;
-  color: #000000;
+  color: #999999;
   line-height: 22px;
 }
 
@@ -66,14 +66,16 @@ h2, h3, h4, h5 {
 
 }
 
-p {
+p, em{
   font-size: 14px;
-  color: #333333;
+  color: #D49F53;
+  /*color: #333333;*/
   line-height: 21px;
 }
 
 a {
-  color: #1199C3;
+  color: #39358A;
+  /*color: #1199C3;*/
   text-decoration: none;
   margin-top: 10px;
   display: block;
@@ -106,7 +108,7 @@ a {
 
 .gray {
   background-color: #F3F3F3;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   clear:both;
 }
 

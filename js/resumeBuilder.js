@@ -1,7 +1,7 @@
 var name = "David Pressley" ;
 var role = "Problem Solver"
 var formattedName = HTMLheaderName.replace("%data%", name) ;
-	$("#header").prepend(formattedName) ;
+$("#header").prepend(formattedName) ;
 var formattedRole = HTMLheaderRole.replace("%data%", role) ;
 $("#header").append(formattedRole) ;
 
@@ -23,7 +23,7 @@ var bio = {
 	"display" : "function"
 };
 
-$("#mapDiv").append(googleMap);
+
 
 function displayBio(){
 
@@ -31,12 +31,16 @@ function displayBio(){
 	$("#header").append(formattedbioPic);
 
 
-	var fmobile = HTMLmobile.replace("%data%",bio.contacts[1]);
-	$("#header").append(fmobile);
-	var femail = HTMLemail.replace("%data%",bio.contacts[0]);
-	$("#header").append(femail);
-	var flocation = HTMLlocation.replace("%data%",bio.contacts[4]);
-	$("#header").append(flocation);
+	var fmobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
+	$("#topContacts").append(fmobile);
+	var femail = HTMLemail.replace("%data%",bio.contacts.email);
+	$("#topContacts").append(femail);
+	var fgithub = HTMLgithub.replace("%data%",bio.contacts.github);
+	$("#topContacts").append(fgithub);
+	var flocation = HTMLlocation.replace("%data%",bio.contacts.location);
+	$("#topContacts").append(flocation);
+
+
 
 
     if(bio.skills.length >0){
@@ -89,14 +93,28 @@ var work = {
 	"location" : "Research Triangle Park, NC",
 	"description" : "Oversee and individually contribute to Biostatistics and Data Programming group"
 	}
-	// ,
-	// {
-	// "title" : "Forestry Technician (Fire Lookout)",
-	// "employer" : "US Forest Service",
-	// "dates" : "1998 - 2002 Fire Seasons",
-	// "location" : "Hamilton, MT",
-	// "description" : "Fire Lookout"
-	// }
+	,
+	{
+	"title" : "Forestry Technician (Fire Lookout)",
+	"employer" : "US Forest Service, Bitterroot National Forest",
+	"dates" : "1998 - 2002 Fire Seasons",
+	"location" : "Trapper Peak, Bitterroot National Forest, MT",
+	"description" : "Fire Lookout"
+	},
+	{
+	"title" : "Forestry Technician (Fire Lookout)",
+	"employer" : "US Forest Service, Flathead National Forest",
+	"dates" : "2002 - 2004 Fire Seasons",
+	"location" : "Holland Peak, MT",
+	"description" : "Fire Lookout"
+	},
+	{
+	"title" : "Mercenary",
+	"employer" : "French Foreign Legion",
+	"dates" : "1996 - 1998",
+	"location" : "Aubagne, France",
+	"description" : "Legionnaire Extraordinaire"
+	}
 	]
 
 };
@@ -136,19 +154,19 @@ function displayWork(){
 var projects = {
 	"project":[
 	{
-		"title": "Unituxin BLA",
+		"title": "Unituxin Biological Licensing Application",
 		"dates": "2012 - 2014",
 		"description" : "Statistical Programming and Data Management for Unituxin BLA Submission to FDA and MAA submission to EMA",
 		"images": " "
 	},
 	{
-		"title": "Orenitram NDA",
+		"title": "Orenitram New Drug Application",
 		"dates": "2006 - 2012",
 		"description" : "Statistical Programming and Data Management for Orenitram NDA Submission to FDA",
 		"images": " "
 	},
 	{
-		"title": "Tyvaso NDA",
+		"title": "Tyvaso New Drug Application",
 		"dates": "2007 - 2009",
 		"description" : "Statistical Programming and Data Management for Tyvaso NDA Submission to FDA",
 		"images": " "
@@ -193,28 +211,28 @@ var education = {
 	"schools": [
 		{
 			"name" : "North Carolina State University",
-			"location" : "Raleigh",
-			"degree" : ["BS","BA"],
-			"majors" : ["Biochemistry", "Chemistry"],
+			"location" : "Raleigh, NC",
+			"degree" : "BS",
+			"major" : "Biochemistry",
 			"dates" : "1998",
 			"url"	: "www.ncsu.edu"
 		},
 		{
 			"name" : "North Carolina State University",
-			"location" : "Raleigh",
-			"degree" : ["Certification"],
-			"major" : ["Computer Science"],
+			"location" : "Raleigh, NC",
+			"degree" : "Certification",
+			"major" : "Computer Science",
 			"dates" : "2007",
 			"url"	: "www.ncsu.edu"
 		},
 		{
 			"name" : "North Carolina State University",
-			"location" : "Raleigh",
-			"degree" : ["Graduate Coursework",
-						"ST505 - Applied Nonparametric Statistics",
-						"ST511 - Experimental Statistics For Biological Sciences I",
-						"ST512 - Experimental Statistics For Biological Sciences II"],
-			"major" : ["Statistics"],
+			"location" : "Raleigh, NC",
+			"degree" : "Graduate Coursework",
+						// "ST505 - Applied Nonparametric Statistics",
+						// "ST511 - Experimental Statistics For Biological Sciences I",
+						// "ST512 - Experimental Statistics For Biological Sciences II",
+			"major" : "Statistics",
 			"dates" : "2010",
 			"url"	: "www.ncsu.edu"
 		}
@@ -222,7 +240,7 @@ var education = {
 	"onlineCourses" : [
 		{
 			"title" : "JavaScript Basics",
-			"school" : "San Udalocation",
+			"school" : "Udacity",
 			"degree" : "Nanodegree",
 			"major" : "Front End Web Development",
 			"dates" : "2015",
@@ -231,5 +249,48 @@ var education = {
 	]
 };
 
+
+education.display = function(){
+	$("#education").append(HTMLschoolStart);
+
+	for (i in education.schools){
+		var formattedSchoolName = HTMLschoolName.replace("%data%",education.schools[i].name);
+		var formattedSchoolDegree = HTMLschoolDegree.replace("%data%",education.schools[i].degree);
+
+		var formattedSchoolNameDegree = formattedSchoolName + formattedSchoolDegree ;
+		$(".education-entry:last").append(formattedSchoolNameDegree);
+
+		var formattedSchoolDates = HTMLschoolDates.replace("%data%",education.schools[i].dates);
+		$(".education-entry:last").append(formattedSchoolDates);
+
+		var formattedSchoolLocation = HTMLschoolLocation.replace("%data%",education.schools[i].location);
+		$(".education-entry:last").append(formattedSchoolLocation);
+
+		var formattedSchoolMajor = HTMLschoolMajor.replace("%data%",education.schools[i].major);
+		$(".education-entry:last").append(formattedSchoolMajor);
+
+	}
+
+	if(education.onlineCourses.length > 0){
+
+	$("#education").append(HTMLonlineClasses);
+
+	for (i in education.onlineCourses){
+
+		$("#education").append(HTMLschoolStart);
+		var f_onlineTitle = HTMLonlineTitle.replace("%data%",education.onlineCourses[i].title);
+		var f_onlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
+		var f_titleSchool = f_onlineTitle + f_onlineSchool;
+		$(".education-entry:last").append(f_titleSchool);
+
+		var f_onlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates);
+		console.log(f_onlineDates);
+		$(".education-entry:last").append(f_onlineDates);
+
+	}
+	}
+}
+
+$("#mapDiv").append(googleMap);
 // $("#main").append(work["position"]);
 // $("#main").append(education.name);
