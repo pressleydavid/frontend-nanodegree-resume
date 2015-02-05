@@ -41,8 +41,6 @@ function displayBio(){
 	$("#topContacts").append(flocation);
 
 
-
-
     if(bio.skills.length >0){
       $("#header").append(HTMLskillsStart);
       var formattedSkill = HTMLskills.replace("%data%",bio.skills[0]);
@@ -68,14 +66,7 @@ function inName(name){
   return finalName;
 
 }
-// "picture_URL" : "images/dp.jpg",
 
-
-//$("main").append(bio.picture_URL);
-
-// ["Twitter": "pressleydavid","Github":"pressleydavid"]
-
-// bio.location = "Raleigh";
 
 var work = {
 	"jobs": [
@@ -127,13 +118,9 @@ function displayWork(){
         var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
         var formattedEmployerTitle = formattedEmployer + formattedTitle;
         $(".work-entry:last").append(formattedEmployerTitle);
-        // console.log(work.jobs[i].title);
 
-
-        //$("#work-entry").append(HTMLworkDates);
         var workDates = HTMLworkDates.replace("%data%", work.jobs[i].dates);
-        // console.log(workDates);
-        // console.log(work.jobs[i].dates);
+
         $(".work-entry:last").append(workDates);
 
         $("#work-entry").append(HTMLworkLocation);
@@ -145,9 +132,6 @@ function displayWork(){
         var formattedDescription = HTMLworkDescription.replace("%data%",work.jobs[i].description);
         $(".work-entry:last").append(formattedDescription);
 
-  //       for (var i in bio.contacts) {
-		// 	console.log(bio.contacts.location);
-		// }
       }
     }
 
@@ -198,14 +182,7 @@ projects.display = function(){
         }
       }
     }
-// "dev" 	: [ "Implement first EDC System in Company",
-// 					"Implement hosted Statistical Computing Environment",
-// 					"Implementation of first VCS/SCM system (Subversion)",
-// 					"Implement first company submission of CDISC data to FDA"],
-// 		"platforms" : [ "Architect and Administrator for Hosted/Private Cloud Computing Infrastructure",
-// 						"SAS CLinical Data Integration",
-// 						"JMP Clinical",
-// 						"Base SAS", "SAS Graph", "SAS Stat", "R", "Python", "Subversion"]
+
 
 var education = {
 	"schools": [
@@ -229,9 +206,6 @@ var education = {
 			"name" : "North Carolina State University",
 			"location" : "Raleigh, NC",
 			"degree" : "Graduate Coursework",
-						// "ST505 - Applied Nonparametric Statistics",
-						// "ST511 - Experimental Statistics For Biological Sciences I",
-						// "ST512 - Experimental Statistics For Biological Sciences II",
 			"major" : "Statistics",
 			"dates" : "2010",
 			"url"	: "www.ncsu.edu"
@@ -292,5 +266,3 @@ education.display = function(){
 }
 
 $("#mapDiv").append(googleMap);
-// $("#main").append(work["position"]);
-// $("#main").append(education.name);
