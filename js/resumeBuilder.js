@@ -98,14 +98,15 @@ var work = {
 	"dates" : "2002 - 2004 Fire Seasons",
 	"location" : "Holland Peak, MT",
 	"description" : "Fire Lookout"
-	},
-	{
-	"title" : "Mercenary",
-	"employer" : "French Foreign Legion",
-	"dates" : "1996 - 1998",
-	"location" : "Aubagne, France",
-	"description" : "Legionnaire Extraordinaire"
 	}
+	// ,
+	// {
+	// "title" : "Mercenary",
+	// "employer" : "French Foreign Legion",
+	// "dates" : "1996 - 1998",
+	// "location" : "Aubagne, France",
+	// "description" : "Legionnaire Extraordinaire"
+	// }
 	]
 
 };
