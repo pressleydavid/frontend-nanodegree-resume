@@ -35,8 +35,8 @@ function displayBio(){
 	if(bio.skills.length >0){
 		$("#header").append(HTMLskillsStart);
 		for (i in bio.skills){
-			$("#skills").append(formattedSkill) ;
 			var formattedSkill = HTMLskills.replace("%data%",bio.skills[i]) ;
+			$("#skills").append(formattedSkill) ;
 		}
 	}
 }
